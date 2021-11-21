@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Paises</string>
+    <string name="action_settings">Configuracion</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="texto">texto</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="acerca_de">Acerca de</string>
+    <string name="texto_acerca_de">
+ Aplicación creada por (Nombre de los creadores).
+ Esta aplicación muestra una lista de países y su detalle
+correpondiente, junto con una foto.
+</string>
+</resources>
