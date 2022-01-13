@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:contentDescription="@string/texto"
-    tools:context=".DetallePaisFragment" >
+    android:contentDescription="@string/descripcion"
+    tools:context=".DetallePaisFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:src="@drawable/argentina" />
 
         <TextView
-            android:id="@+id/Descripcion"
+            android:id="@+id/descripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"

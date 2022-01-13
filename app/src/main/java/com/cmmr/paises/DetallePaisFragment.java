@@ -1,7 +1,7 @@
 package com.cmmr.paises;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +32,7 @@ public class DetallePaisFragment extends Fragment {
 
         ImageView iv = binding.foto;
         iv.setImageResource(getImageId(mPais.foto));
-        TextView tv = binding.Descripcion;
+        TextView tv = binding.descripcion;
         tv.setText(mPais.detalles);
 
         return binding.getRoot();

@@ -1,14 +1,18 @@
 package com.cmmr.paises;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.cmmr.paises.placeholder.PlaceholderContent;
 
@@ -51,22 +55,34 @@ public class PaisesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_paises_list, container, false);
 
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
+            String tipoVisualizacion = prefs.getString("tipo visualizacion", ""); /* asignar a esta variable el valor de la propiedad tipo_visualizacion */
+
+            if (tipoVisualizacion.equals("listado")) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+                recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
+            }
+            boolean useDivider=prefs.getBoolean("linea", Boolean.parseBoolean("")); /* asignar a esta variable el valor almacenado en la propiedad línea */
+            if(useDivider) {
+                // Dibuja una línea divisoria entre elementos
+                DividerItemDecoration verticalDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                        LinearLayout.VERTICAL);
+                recyclerView.addItemDecoration(verticalDecoration);
             }
             PlaceholderContent placeholderContent = new PlaceholderContent(getResources(),
                     getContext().getPackageName());
-
             recyclerView.setAdapter(new PaisRecyclerViewAdapter(PlaceholderContent.PAISES));
         }
+
         return view;
     }
 }

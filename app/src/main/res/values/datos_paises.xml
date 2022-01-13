@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="selecciona_pais">Selecciona un país</string>
 
@@ -74,4 +75,8 @@
             Barcelona, se caracteriza por las obras modernistas extravagantes de Antoni Gaudí, como el templo de la Sagrada Familia.
         </item>
     </string-array>
+
+
+
+
 </resources>

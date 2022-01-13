@@ -3,13 +3,17 @@
     <string name="action_settings">Configuracion</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="texto">texto</string>
+    <string name="descripcion">texto</string>
     <!-- Strings used for fragments for navigation -->
 
     <string name="acerca_de">Acerca de</string>
     <string name="texto_acerca_de">
- Aplicación creada por (Nombre de los creadores).
+ Aplicación creada por (CarlosM).
  Esta aplicación muestra una lista de países y su detalle
 correpondiente, junto con una foto.
 </string>
+    <string name="apariencia">Apariencia</string>
+    <string name="config_linea">Mostrar linea de de separacion entre elementos del listado</string>
+    <string name="config_lista">Formato del listado</string>
+
 </resources>

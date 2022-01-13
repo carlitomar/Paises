@@ -1,0 +1,16 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="@string/apariencia">
+
+        <ListPreference
+            android:defaultValue="listado"
+            android:entries="@array/tipos_visualizacion"
+            android:entryValues="@array/valores_visualizacion"
+            android:key="tipo visualizacion"
+            android:title="@string/config_lista" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="linea"
+            android:title="@string/config_linea" />
+    </PreferenceCategory>
+</PreferenceScreen>

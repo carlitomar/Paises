@@ -1,7 +1,7 @@
 package com.cmmr.paises;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,9 +45,7 @@ public class PaisRecyclerViewAdapter extends RecyclerView.Adapter<PaisRecyclerVi
         return mValues.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View
-
-            .OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView mContentView;
         public Pais mItem;
 
