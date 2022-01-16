@@ -16,9 +16,20 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsFragment extends Fragment {
+import java.util.ArrayList;
 
-    private OnMapReadyCallback callback = new OnMapReadyCallback() {
+public class MapsFragment extends Fragment implements OnMapReadyCallback {
+
+    GoogleMap mMap;
+    ArrayList<LatLng> arrayList = new ArrayList<LatLng>();
+    LatLng argentina = new LatLng(-34.85025888421061, -65.11216160528267);
+    LatLng australia = new LatLng(-25.027054766850014, 134.51839833267354);
+    LatLng belgica = new LatLng(50.518090648153276, 4.761884249205673);
+    LatLng canada = new LatLng(59.96344368194559, -110.60186212567048);
+    LatLng dinamarca = new LatLng(55.61873209894309, 10.311044410363163);
+    LatLng españa = new LatLng(39.37839084032124, -3.522928981003058);
+
+    private final OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         /**
          * Manipulates the map once available.
@@ -31,9 +42,14 @@ public class MapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
-            LatLng sydney = new LatLng(-34, 151);
+            /*LatLng sydney = new LatLng(-34, 151);
             googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
+
+            for (int i=0;i<arrayList.size();i++) {
+                googleMap.addMarker(new MarkerOptions().position(arrayList.get(i)));
+                //googleMap.moveCamera(CameraUpdateFactory.newLatLng(arrayList.get(i)));
+            }
         }
     };
 
@@ -48,10 +64,35 @@ public class MapsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        SupportMapFragment mapFragment =
-                (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+
+        mapFragment.getMapAsync(callback);
+        arrayList.add(argentina);
+        arrayList.add(australia);
+        arrayList.add(belgica);
+        arrayList.add(canada);
+        arrayList.add(dinamarca);
+        arrayList.add(españa);
+
+        /*
         if (mapFragment != null) {
+
             mapFragment.getMapAsync(callback);
-        }
+            arrayList.add(argentina);
+            arrayList.add(australia);
+            arrayList.add(belgica);
+            arrayList.add(canada);
+            arrayList.add(dinamarca);
+            arrayList.add(españa);
+        }*/
+    }
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        /*for (int i=0;i<arrayList.size();i++){
+
+            mMap.addMarker(new MarkerOptions().position(arrayList.get(i)));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(arrayList.get(i)));
+        }*/
     }
 }

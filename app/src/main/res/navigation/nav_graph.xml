@@ -21,7 +21,11 @@
         android:id="@+id/detallePaisFragment"
         android:name="com.cmmr.paises.DetallePaisFragment"
         android:label="{title}"
-        tools:layout="@layout/fragment_detalle_pais" />
+        tools:layout="@layout/fragment_detalle_pais" >
+        <action
+            android:id="@+id/action_detallePaisFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
     <argument
         android:name="title"
         app:argType="string"/>
